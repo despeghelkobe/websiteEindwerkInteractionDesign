@@ -1,0 +1,20 @@
+need to calculate the Eccentric anomaly
+-calculate from the mean anomaly:
+    M = E - e sin(E)
+    M: mean anomaly
+    E: Eccentric anomaly
+    e: Eccentricity 
+
+    need inverse kepler equation
+
+    use https://pypi.org/project/kepler.py/ => pip 
+    https://www.sciencedirect.com/topics/engineering/eccentric-anomaly
+
+
+    true_anomaly = Mean anomaly+2*Eccentricity*sin(Mean anomaly)    
+
+    also need the semi-major axis
+
+    ====
+
+    perihelion

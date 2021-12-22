@@ -1,0 +1,582 @@
+/*------------------------------------*\
+#FONTS
+\*------------------------------------*/
+@font-face {
+    font-family: "Work sans";
+    src: url(https://fonts.googleapis.com/css2?family=Work+Sans&display=swap);
+    font-weight: 400; /*regular*/
+}
+
+/*------------------------------------*\
+#Variables
+\*------------------------------------*/
+
+:root {
+    /* colors */
+    --global-color-dark: Black;
+    --global-color-light: white;
+
+    --global-color-alpha: #e541bf;
+    --global-color-beta: #241d73 ;
+
+    /*whitespace*/
+    --global-baseline: 5px;
+    --global-whitespace-sm: calc(var(--global-baseline)*2);
+    --global-whitespace-md: calc(var(--global-baseline)*3);
+    --global-whitespace-lg: calc(var(--global-baseline)*4);
+
+}
+
+/*------------------------------------*\
+#GENERIC
+\*------------------------------------*/
+
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+
+html {
+    font-size: 16px;
+    line-height: 1.5;
+    font-family:  Helvetica, arial, sans-serif;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "zero" 1;
+    background-color: var(--global-color-dark);
+    color: var(--global-color-dark);
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/*
+* Remove text-shadow in selection highlight:
+* https://twitter.com/miketaylr/status/12228805301
+*
+* Customize the background color to match your design.
+*/
+
+::-moz-selection {
+    background: red;
+    color: white;
+    text-shadow: none;
+}
+
+::selection {
+    background: var(--global-color-alpha);
+    color: white;
+    text-shadow: none;
+}
+
+/*------------------------------------*\
+#Elements
+\*------------------------------------*/
+
+/*
+Elements: Images
+---
+Default markup for images to make them responsive
+*/
+
+img {
+    max-width: 100%;
+    vertical-align: top;
+}
+
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+
+h1,
+h2,
+h3 {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 48px;
+    margin: 0 0 24px;
+}
+
+h2 {
+    font-size: 32px;
+    line-height: 40px;
+    margin: 0 0 24px;
+}
+
+h3 {
+    font-size: 26px;
+    line-height: 32px;
+    margin: 0 0 24px;
+}
+
+h4,
+h5,
+h6 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    margin: 0 0 24px;
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+    margin: 0 0 24px;
+}
+
+ul,
+ol {
+    padding-left: 24px;
+}
+
+li ul,
+li ol {
+    margin-bottom: 0;
+}
+
+blockquote {
+    font-style: normal;
+    font-size: 23px;
+    line-height: 32px;
+    margin: 0 0 24px;
+}
+
+blockquote * {
+    font-size: inherit;
+    line-height: inherit;
+}
+
+figcaption {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 8px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: LightGrey;
+    margin: 0 0 24px;
+}
+
+a {
+    color: red;
+    outline-color: red;
+    outline-width: medium;
+    outline-offset: 2px;
+}
+
+a:visited,
+a:active {
+    color: red;
+}
+
+a:hover,
+a:focus {
+    color: red;
+}
+
+label,
+input {
+    display: block;
+}
+
+select {
+    width: 100%;
+}
+
+input::placeholder {
+    color: gray;
+}
+
+/*------------------------------------*\
+#OBJECTS
+\*------------------------------------*/
+
+/*
+    Object: Button reset
+    ---
+    Small button reset object
+*/
+
+.o-button-reset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: none;
+}
+
+/*
+    Object: Hide accessible
+    ---
+    Accessibly hide any element
+*/
+
+.o-hide-accessible {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+
+/*
+    Component: Sun
+    ---
+    The sun
+*/
+
+.c-sun{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: calc(50% - 16px);
+    left: calc(50% - 14.2375px);
+}
+
+.c-sun__symbol{
+    height: 32px;
+    width: 32px;
+}
+
+.c-sun p{
+    margin: 0;
+    display: none;
+}
+
+.c-sun:hover p{
+    display: block;
+}
+
+
+/*
+    Component: App
+    ---
+    Main app wrapper
+*/
+
+.c-app{
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+
+.c-app__gradient{
+    background-color: var(--global-color-beta);
+    background: linear-gradient(180deg, var(--global-color-beta) 0%, Black 100%);
+    height: 50px;
+    width: 100vw;
+}
+
+@media(min-width: 470px){
+    .c-app{
+        display: grid;
+        grid-template-columns: minmax(180px, 355px) 50px auto;
+        column-gap: 0;
+        height: 100vh;
+    }
+
+    .c-app__gradient{
+        background: linear-gradient(90deg, var(--global-color-beta) 0%, Black 100%);
+        height: 100vh;
+        width: 50px;
+        grid-column: 2;
+        justify-self: stretch;
+    }
+}
+
+
+
+
+/*
+    Component: space
+*/
+
+
+
+.c-space{
+    /* make a responsive square */
+    height: calc(100vw - 60.5px);
+    width: calc(100vw - 60.5px);
+    display: block;
+    color: white;
+    position: relative;
+    margin-right: 30.25px;
+    margin-bottom: 32px;
+    margin-left: 30.25px;
+}
+
+@media(min-width: 470px){
+    .c-space{
+        height: calc(100vh - 40px);
+        width: calc(100vh - 40px);
+        grid-column: 3;
+        justify-self: center;
+        margin-top: 8px;
+        margin-right: 30.25px;
+        margin-bottom: 32px;
+    }
+}
+
+.c-orbit{
+    border-radius: 100%;
+    border:1px solid gray;
+    position: absolute;
+    /* make responsive with the width and height ( */
+    top: 43.75%;
+    right: 43.75%;
+    /*make responsive with the radius (radius*2)*/
+    width: 12.5%;
+    height: 12.5%;
+}
+
+
+
+/*
+    Component: planet
+*/
+.c-planet{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+}
+
+.c-planet p{
+    margin: 0;
+    opacity: 0;
+}
+
+.c-planet:hover p{
+    opacity: 100;
+}
+
+.c-planet__symbol{
+    height: 20px;
+    width: 20px;
+}
+
+@media(min-width: 1200px){
+    .c-planet__symbol{
+        height: 24px;
+        width: 24px;
+    }
+}
+
+/*
+    Component: sidebar
+*/
+.c-sidebar{
+    margin: 0;
+    width: 100vw;
+    background: var(--global-color-beta);
+    padding-left: var(--global-whitespace-sm);
+    grid-column: 1;
+}
+
+@media(min-width: 470px){
+    .c-sidebar{
+        height: 100vh;
+        width: auto;
+    }
+}
+
+.c-sidebar__title{
+    color: white;
+    text-align: center;
+    margin-top: var(--global-whitespace-sm);
+}
+
+.c-sidebar__date{
+    background-color: var(--global-color-alpha);
+    color: white;
+    border-radius: var(--global-baseline);
+    border-style: none;
+    padding: var(--global-baseline);
+}
+.c-sidebar__date::-webkit-calendar-picker-indicator{
+    filter: invert(1);
+}
+
+.c-sidebar__planet-info{
+    color: white;
+    margin-top: var(--global-whitespace-lg);
+}
+
+
+.c-sidebar__planet-info p{
+    font-size: 20px;
+    margin-bottom: var(--global-whitespace-sm);
+}
+.c-sidebar__planet-info p p{
+    margin: 0;
+    margin-left: var(--global-whitespace-md);
+}
+
+.c-sidebar__planet-info div{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: var(--global-whitespace-sm);
+}
+.c-sidebar__planet-info h3{
+    text-align: center;
+}
+
+.c-sidebar__planet-info img{
+    height: 100px;
+}
+
+/*testing*/
+/* .js-orbit-mercury{
+    display: flex;
+    justify-content: center;
+    transform: rotate(180deg);
+}
+
+.c-planet__mercury{
+    transform: translateY(-8px) rotate(180deg);
+
+} */
+
+
+/*------------------------------------*\
+#UTILITIES
+\*------------------------------------*/
+
+/*
+    Utilities: Mute
+    Mute with opacity
+*/
+.u-muted{
+    opacity: var(--global-oppacity);
+}
+
+/*------------------------------------*\
+#STATES
+\*------------------------------------*/
+
+/*
+    Change the theme using CSS vars.
+*/
+
+/* Night version: just switch the light and dark vars */
+.is-night{
+    --color-front: var(--global-color-light);
+    --color-back: var(--global-color-dark);
+}
+
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
+
+/*
+    Print styles.
+    ---
+    Inlined to avoid the additional HTTP request:
+    http://www.phpied.com/delay-loading-your-print-css/
+*/
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important;
+        /* Black prints faster:
+        http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+    /*
+    * Don't show links that are fragment identifiers,
+    * or use the `javascript:` pseudo protocol
+    */
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+    pre {
+        white-space: pre-wrap !important;
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+    /*
+    * Printing Tables:
+    * http://css-discuss.incutio.com/wiki/Printing_Tables
+    */
+    thead {
+        display: table-header-group;
+    }
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
